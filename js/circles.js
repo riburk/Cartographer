@@ -2,19 +2,6 @@
  * Created by richardburkhardt on 2/24/15.
  */
 
-/*****************************
- * Project ideas
- *
- * 1. make objects 'float' and repel each other
- * 2. circles display info inside
- * 3. state machine for different displays
- * 4. load from model
- * 5. create pie slices
- * 6. rotate with mouse wheel
- * 7. make circle orbit circle
- *
-  */
-
 define(['jquery', 'circle', 'pvector'], function($, Circle, PVector){
     return function() {
         var canvas, ctx, circles = [];
@@ -29,7 +16,7 @@ define(['jquery', 'circle', 'pvector'], function($, Circle, PVector){
             $force = $('#force');
 
             for (var i = 0; i < 20; i++) {
-                circles.push(new Circle($container, new PVector(Math.random() * canvas.width, Math.random() * canvas.height), Math.random() * 80 + 10, i));
+                circles.push(new Circle($container, new PVector(Math.random() * canvas.width, Math.random() * canvas.height), Math.random() * 80 + 10));
             }
         };
 

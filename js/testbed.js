@@ -2,6 +2,24 @@
  * Created by richardburkhardt on 3/19/15.
  */
 
+/*****************************
+ * Project ideas
+ *
+ * 1. make objects 'float' and repel each other
+ * 2. circles display info inside
+ * 3. state machine for different displays
+ * 4. load from model
+ * 5. create pie slices
+ * 6. rotate with mouse wheel
+ * 7. make circle orbit circle
+ * 8. have multiple 'systems' of planets and moons
+ * 9. on hover display more info, gray out others
+ * 10. click to zoom in to next level of detail
+ * 11. click-out to zoom out
+ * 12. move to 3D
+ *
+ */
+
 var currentMousePos;
 
 requirejs.config({
@@ -10,7 +28,7 @@ requirejs.config({
 });
 
 
-requirejs(["jquery", "circles", "pvector"], function($, Circles, PVector) {
+requirejs(["jquery", "circles", "pvector", "tethered"], function($, Circles, PVector, Tethered) {
 
     var currentTest;
     var currentMousePos;
@@ -37,7 +55,7 @@ requirejs(["jquery", "circles", "pvector"], function($, Circles, PVector) {
     }
 
     function init(){
-        currentTest = new Circles();
+        currentTest = new Tethered();
         currentTest.init();
         var canvas = document.getElementById("drawing");
 
@@ -58,16 +76,4 @@ requirejs(["jquery", "circles", "pvector"], function($, Circles, PVector) {
     }
 
     init();
-
-    //$('#drawing').mousemove(function (event) {
-    //    currentMousePos.x = event.pageX - event.currentTarget.offsetLeft;
-    //    currentMousePos.y = event.pageY - event.currentTarget.offsetTop;
-    //
-    //    for (var i = 0; i < circles.length; i++) {
-    //        circles[i].grow = circles[i].hitTest(currentMousePos);
-    //    }
-    //});
-
-
-    //var currentMousePos = new PVector(0, 0);
 });

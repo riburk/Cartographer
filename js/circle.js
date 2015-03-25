@@ -3,9 +3,11 @@
  */
 
 define(['pvector'], function(PVector){
-    return function($container, location, r, index){
+    return function($container, location, r){
+        var direction = new PVector(Math.random() * 2 - 1, Math.random() * 2 - 1);
+        var rate = .05;
+
         this.location = location;
-        this.index = index;
         this.r = r;
         this.grow = false;
         this.color = 'HoneyDew';
@@ -21,8 +23,6 @@ define(['pvector'], function(PVector){
         var minDistance = 5;
         var maxDistance = 500;
         var grow_rate = 1.2;
-        var direction = new PVector(Math.random() * 2 - 1, Math.random() * 2 - 1);
-        var rate = .05;
         var max_r = r * 2;
         var min_r = r;
 
